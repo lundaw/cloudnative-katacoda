@@ -1,2 +1,2 @@
 # cloudnative-katacoda
-Random update
+Random update for SSH key testing
