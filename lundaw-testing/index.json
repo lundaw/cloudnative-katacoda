@@ -1,20 +1,20 @@
 {
-  "title": "Lundaw testing",
-  "description": "My first scenario on Katacoda",
+  "title": "Setting static IP on Ubuntu",
+  "description": "In this scenario you can learn and try it out how to set up a static IP address on Ubuntu.",
   "difficulty": "Beginner",
-  "time": "60 minutes",
+  "time": "10 minutes",
   "details": {
     "steps": [
       {
-        "title": "Step 1",
+        "title": "Step 1 - Checking the current values",
         "text": "step1.md"
       },
       {
-        "title": "Step 2",
+        "title": "Step 2 - Editing the config file",
         "text": "step2.md"
       },
       {
-        "title": "Step 3",
+        "title": "Step 3 - Applying the modifications",
         "text": "step3.md"
       }
     ],
