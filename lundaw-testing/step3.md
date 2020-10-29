@@ -4,11 +4,11 @@ on the interfaces contained in the configuration file.
 ## Applying the configuration
 In order to apply the configuration, ask `netplan` to read the config
 files again, parse them and apply the settings by running the
-`sudo netplan apply`{{execute}} command.
+`sudo netplan apply`{{execute HOST2}} command.
 
 If you would like to see more verbose output and see the process in
-detail, run it with `--debug` such as `sudo netplan --debug apply`{{execute}}.
+detail, run it with `--debug` such as `sudo netplan --debug apply`{{execute HOST2}}.
 
 ## Check the result
 You can check the successful modification the same way as in Step 1, by
-running the `ip a`{{execute}} command.
+running the `ip a`{{execute HOST1}} command.
