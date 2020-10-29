@@ -14,7 +14,7 @@ The file is protected from normal users, therefore we need superuser
 rights too to open it for editing. Execute the following code to edit
 with nano:
 
-`sudo nano /etc/netplan/01-netcfg.yaml`{{execute HOST2}}
+`sudo nano /etc/netplan/01-netcfg.yaml`{{execute}}
 
 ## Settings usable in YAML
 For a simple static IP, the YAML file needs to contain the IP address(es),
@@ -34,7 +34,7 @@ network:
             gateway4: 192.168.5.1
             nameservers:
                 addresses: [1.1.1.1, 8.8.8.8, 8.8.4.4]
-```{{execute HOST2}}
+```{{execute}}
 
 ## Saving the file
 On Ubuntu, the usual <kbd>CTRL</kbd>+<kbd>S</kbd> save shortcut is set up for nano. The other

@@ -6,7 +6,7 @@ If you don't have it, install it with `sudo apt install iproute2`{{execute}}.
 
 ## Checking the values
 You can the interfaces and the settings values for all interfaces by
-executing the `ip a`{{execute HOST1}} command.
+executing the `ip a`{{execute}} command.
 
 ## Understanding the output
 The output of the command contains all the interfaces and their MAC and IP
