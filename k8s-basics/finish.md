@@ -1,0 +1,1 @@
+Now you are familiar with basic k8s commands and can check how k8s is running, if there are errors, etc.

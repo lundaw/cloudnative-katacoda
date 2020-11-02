@@ -1,0 +1,1 @@
+In this section, you will get to know basic k8s commands such as listing running nodes, view logs.
