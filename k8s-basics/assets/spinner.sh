@@ -18,6 +18,7 @@ show_progress()
         fi
     done
 
+    echo ""
     echo "Environment is ready"
 }
 
