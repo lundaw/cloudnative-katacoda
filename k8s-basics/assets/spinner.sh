@@ -2,6 +2,7 @@
 
 show_progress()
 {
+    printf "\033c"
     echo -n "Configuring k8s"
     local spinstr='\|/-'
     while true; do
