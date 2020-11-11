@@ -16,3 +16,6 @@ kubectl taint nodes --all node-role.kubernetes.io/master-
 
 # Set up networking
 kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
+
+# Signal finish
+echo "done" >> /root/setup-finished

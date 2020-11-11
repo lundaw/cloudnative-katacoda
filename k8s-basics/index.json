@@ -24,7 +24,8 @@
     ],
     "intro": {
       "text": "intro.md",
-      "code": "prepare.sh"
+      "courseData": "prepare.sh",
+      "code": "loading_spinner.sh"
     },
     "finish": {
       "text": "finish.md"
