@@ -25,10 +25,15 @@
     "intro": {
       "text": "intro.md",
       "courseData": "prepare.sh",
-      "code": "loading_spinner.sh"
+      "code": "wait.sh"
     },
     "finish": {
       "text": "finish.md"
+    },
+    "assets": {
+      "host01": [
+        {"file": "spinner.sh", "target": "/usr/bin/", "chmod": "+x"}
+      ]
     }
   },
   "environment": {
