@@ -1,4 +1,5 @@
 # Add colors to bashrc
+printf "
 NOCOLOR='\033[0m'
 RED='\033[0;31m'
 GREEN='\033[0;32m'
@@ -14,8 +15,8 @@ YELLOW='\033[1;33m'
 LIGHTBLUE='\033[1;34m'
 LIGHTPURPLE='\033[1;35m'
 LIGHTCYAN='\033[1;36m'
-WHITE='\033[1;37m'
-source ~/.bash_profile
+WHITE='\033[1;37m'" >> ~/.bashrc
+source ~/.bashrc
 
 # Add package repo, install recommended dependencies, set up environment
 swapoff -a
