@@ -1,16 +1,13 @@
-# Install recommended dependencies, prepare environment
-apt install ebtables
+# Add package repo, install recommended dependencies, set up environment
 swapoff -a
-
-# Install k8s
-apt update
-apt install -y apt-transport-https curl
 curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
 cat <<EOF | sudo tee /etc/apt/sources.list.d/kubernetes.list
 deb https://apt.kubernetes.io/ kubernetes-xenial main
 EOF
 apt update
-apt install -y kubelet kubeadm kubectl
+
+# Install recommended dependencies and k8s
+apt install -y apt-transport-https ebtables kubelet kubeadm kubectl
 
 # Run kubeadm to set up cluster
 kubeadm config images pull
