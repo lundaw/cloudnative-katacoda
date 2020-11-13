@@ -1,5 +1,6 @@
 function message() {
-    printf "\e[1;33m%s\e[0m\n" $@
+    printf "\e[1;33m%s\e[0m " $@
+    printf "\n"
 }
 
 # Add package repo, install recommended dependencies, set up environment
