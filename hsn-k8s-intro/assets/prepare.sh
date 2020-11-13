@@ -24,37 +24,37 @@ curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add
 cat <<EOF | sudo tee /etc/apt/sources.list.d/kubernetes.list
 deb https://apt.kubernetes.io/ kubernetes-xenial main
 EOF
-ech0 -e "${YELLOW}Updating apt package list${NOCOLOR}"
+echo -e "${YELLOW}Updating apt package list${NOCOLOR}"
 apt -qq update
 
 # Install recommended dependencies and k8s
-ech0 -e "${YELLOW}Installing k8s packages and dependencies${NOCOLOR}"
+echo -e "${YELLOW}Installing k8s packages and dependencies${NOCOLOR}"
 apt -q install -y --no-install-recommends apt-transport-https ebtables kubelet kubeadm kubectl
 
 # Run kubeadm to set up cluster
-ech0 -e "${YELLOW}Pulling k8s images and configuring cluster${NOCOLOR}"
+echo -e "${YELLOW}Pulling k8s images and configuring cluster${NOCOLOR}"
 kubeadm config images pull
 kubeadm init --pod-network-cidr=10.244.0.0/16
 
 # Install kubectl tab completion
-ech0 -e "${YELLOW}Configuring kubectl autocompletion${NOCOLOR}"
+echo -e "${YELLOW}Configuring kubectl autocompletion${NOCOLOR}"
 mkdir -p /etc/bash_completion.d
 bash -c 'source /etc/bash_completion'
 bash -c 'echo "source <(kubectl completion bash)" > /etc/bash_completion.d/kubectl'
 
 # Set up kube config
-ech0 -e "${YELLOW}Copying kube config${NOCOLOR}"
+echo -e "${YELLOW}Copying kube config${NOCOLOR}"
 mkdir -p $HOME/.kube
 cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 chown $(id -u):$(id -g) $HOME/.kube/config
 
 # Remove control-plane node isolation and make scheduling possible on the control-plane node
-ech0 -e "${YELLOW}Removing isolation taint from every node${NOCOLOR}"
+echo -e "${YELLOW}Removing isolation taint from every node${NOCOLOR}"
 kubectl taint nodes --all node-role.kubernetes.io/master-
 
 # Set up networking
-ech0 -e "${YELLOW}Setting up networking for k8s${NOCOLOR}"
+echo -e "${YELLOW}Setting up networking for k8s${NOCOLOR}"
 kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
 
 # Signal being done
-ech0 -e "${GREEN}Environment is ready to use!${NOCOLOR}"
+echo -e "${GREEN}Environment is ready to use!${NOCOLOR}"
