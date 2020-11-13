@@ -7,7 +7,7 @@ EOF
 apt update
 
 # Install recommended dependencies and k8s
-apt install -y apt-transport-https ebtables kubelet kubeadm kubectl
+apt install -q -y --no-install-recommends apt-transport-https ebtables kubelet kubeadm kubectl
 
 # Run kubeadm to set up cluster
 kubeadm config images pull
