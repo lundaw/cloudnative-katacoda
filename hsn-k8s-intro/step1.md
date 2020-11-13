@@ -17,6 +17,11 @@ Kubeadm is built to help creating k8s clusters in simple step(s), based on "best
 For more information, you can read the documentation at [Kubeadm](https://kubernetes.io/docs/reference/setup-tools/kubeadm/).
 
 ### kubectl
+Kubectl, as its name suggests, is a tool to manage the k8s clusters, based on the config file located in the `$HOME/.kube` directory.
+
+For more information, the documentation at [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) is great.
 
 ## Prepare the environment
-Run the `prepare.sh`{{execute}} script to prepare the environment by installing packages, setting up a basic k8s cluster.
+Now that you know the installed packages and how they help you manage and run k8s clusters, prepare the environment by running the provided bash script.
+
+The script is added to the binaries, you only need to give the `prepare.sh`{{execute}} command to execute it and wait until it finishes.
