@@ -1,5 +1,5 @@
 function message() {
-    printf "\e[1;33m%s\e[0m\n" $1
+    printf "\e[1;33m%s\e[0m\n" $@
 }
 
 # Add package repo, install recommended dependencies, set up environment
@@ -8,37 +8,37 @@ curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add
 cat <<EOF | sudo tee /etc/apt/sources.list.d/kubernetes.list
 deb https://apt.kubernetes.io/ kubernetes-xenial main
 EOF
-message("Updating apt package list")
+message "Updating apt package list"
 apt -qq update
 
 # Install recommended dependencies and k8s
-message("Installing k8s packages and dependencies")
+message "Installing k8s packages and dependencies"
 apt -q install -y --no-install-recommends apt-transport-https ebtables kubelet kubeadm kubectl
 
 # Run kubeadm to set up cluster
-message("Pulling k8s images and configuring cluster")
+message "Pulling k8s images and configuring cluster"
 kubeadm config images pull
 kubeadm init --pod-network-cidr=10.244.0.0/16
 
 # Install kubectl tab completion
-message("Configuring kubectl autocompletion")
+message "Configuring kubectl autocompletion"
 mkdir -p /etc/bash_completion.d
 bash -c 'source /etc/bash_completion'
 bash -c 'echo "source <(kubectl completion bash)" > /etc/bash_completion.d/kubectl'
 
 # Set up kube config
-message("Copying kube config")
+message "Copying kube config"
 mkdir -p $HOME/.kube
 cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 chown $(id -u):$(id -g) $HOME/.kube/config
 
 # Remove control-plane node isolation and make scheduling possible on the control-plane node
-message("Removing isolation taint from every node")
+message "Removing isolation taint from every node"
 kubectl taint nodes --all node-role.kubernetes.io/master-
 
 # Set up networking
-message("Setting up networking for k8s")
+message "Setting up networking for k8s"
 kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
 
 # Signal being done
-message("Environment is ready to use!")
+message "Environment is ready to use!"
