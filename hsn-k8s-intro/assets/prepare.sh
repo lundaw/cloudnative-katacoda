@@ -1,22 +1,6 @@
-# Add colors to bashrc
-printf "
-NOCOLOR='\\e[0m'
-RED='\\e[0;31m'
-GREEN='\\e[0;32m'
-ORANGE='\\e[0;33m'
-BLUE='\\e[0;34m'
-PURPLE='\\e[0;35m'
-CYAN='\\e[0;36m'
-LIGHTGRAY='\\e[0;37m'
-DARKGRAY='\\e[1;30m'
-LIGHTRED='\\e[1;31m'
-LIGHTGREEN='\\e[1;32m'
-YELLOW='\\e[1;33m'
-LIGHTBLUE='\\e[1;34m'
-LIGHTPURPLE='\\e[1;35m'
-LIGHTCYAN='\\e[1;36m'
-WHITE='\\e[1;37m'" >> ~/.bashrc
-source ~/.bashrc
+function message() {
+    printf "\e[1;33m%s\e[0m\n" $1
+}
 
 # Add package repo, install recommended dependencies, set up environment
 swapoff -a
@@ -24,37 +8,37 @@ curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add
 cat <<EOF | sudo tee /etc/apt/sources.list.d/kubernetes.list
 deb https://apt.kubernetes.io/ kubernetes-xenial main
 EOF
-echo -e "${YELLOW}Updating apt package list${NOCOLOR}"
+message("Updating apt package list")
 apt -qq update
 
 # Install recommended dependencies and k8s
-echo -e "${YELLOW}Installing k8s packages and dependencies${NOCOLOR}"
+message("Installing k8s packages and dependencies")
 apt -q install -y --no-install-recommends apt-transport-https ebtables kubelet kubeadm kubectl
 
 # Run kubeadm to set up cluster
-echo -e "${YELLOW}Pulling k8s images and configuring cluster${NOCOLOR}"
+message("Pulling k8s images and configuring cluster")
 kubeadm config images pull
 kubeadm init --pod-network-cidr=10.244.0.0/16
 
 # Install kubectl tab completion
-echo -e "${YELLOW}Configuring kubectl autocompletion${NOCOLOR}"
+message("Configuring kubectl autocompletion")
 mkdir -p /etc/bash_completion.d
 bash -c 'source /etc/bash_completion'
 bash -c 'echo "source <(kubectl completion bash)" > /etc/bash_completion.d/kubectl'
 
 # Set up kube config
-echo -e "${YELLOW}Copying kube config${NOCOLOR}"
+message("Copying kube config")
 mkdir -p $HOME/.kube
 cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 chown $(id -u):$(id -g) $HOME/.kube/config
 
 # Remove control-plane node isolation and make scheduling possible on the control-plane node
-echo -e "${YELLOW}Removing isolation taint from every node${NOCOLOR}"
+message("Removing isolation taint from every node")
 kubectl taint nodes --all node-role.kubernetes.io/master-
 
 # Set up networking
-echo -e "${YELLOW}Setting up networking for k8s${NOCOLOR}"
+message("Setting up networking for k8s")
 kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
 
 # Signal being done
-echo -e "${GREEN}Environment is ready to use!${NOCOLOR}"
+message("Environment is ready to use!")
