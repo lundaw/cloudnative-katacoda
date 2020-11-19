@@ -24,3 +24,25 @@ If you run into a problem, you can diagnose the pods with the following commands
 - `kubectl get events`{{execute}}
 - `kubectl get pods -o wide`{{execute}}
 - `kubectl describe pods`{{execute}}
+
+## Service abstraction
+Now that we have multiple instances of the web-server, it is not a simple task anymore to find them and talk to them. This is where services are coming to the rescue. Execute the following in the terminal to create a service to the hello-node instances:
+
+```
+cat <<EOF | kubectl apply -f -
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello
+spec:
+  type: NodePort
+  selector:
+    app: hello-node
+  ports:
+  - port: 8080
+    targetPort: 8080
+    nodePort: 30080
+EOF
+```{{execute}}
+
+Now you can simply query the web-servers with the `curl http://localhost:30080`{{execute}} and see that both of them will answer if you repeatedly execute the query.
