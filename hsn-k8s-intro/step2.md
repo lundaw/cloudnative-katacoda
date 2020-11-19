@@ -33,4 +33,4 @@ CMD node server.js
 ## Creating the Docker Image
 Now that the Dockerfile and the the web-server code is ready, the Docker image can be created with the `docker build -t hello-node:v1 .`{{execute}}.
 
-It will pull the base NodeJS container image and modify it according to the Dockerfile. After it is finished, the image is available locally with the `hello-node` name.
+It will pull the base NodeJS container image and modify it according to the Dockerfile. After it is finished, the image is available locally with the `hello-node:v1` name.
