@@ -26,4 +26,4 @@ The script is added to the binaries, you only need to give the `prepare.sh`{{exe
 ## Check the k8s cluster
 After the prepare script has finished, the master node will be started and reach _Ready_ state. You can check the state of the nodes with the `kubectl get nodes`{{execute}} command.
 
-If the node is ready, you can continue to Step 2.
+Before continuing to Step 2, please wait for the master node to be in **Ready** status.
