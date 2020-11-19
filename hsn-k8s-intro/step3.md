@@ -9,3 +9,18 @@ Execute the `kubectl run hello-pod --image=hello-node:v1`{{execute}} command wit
 You can check the status of the pod(s) with the `kubectl get pods`{{execute}} command. If you would like to see more information then you can use the `-o wide` argument, like `kubectl get pods -o wide`.
 
 Sometimes you need a more processable format, such as YAML. It is available with the `-o yaml` argument. Check the output by executing the `kubectl get pods -o yaml`{{execute}} command. You can view it with highlighting in VS Code, in which case redirect the output: `kubectl get pods -o yaml > hello-pod.yaml`{{execute}} and open the `hello-pod.yaml`{{open}} file.
+
+Now before continuing, remove the running `hello-pod` by executing the `kubectl delete pod hello-pod`{{execute}} command.
+
+## Deploying a scalable web app
+Now create a k8s deployment with the same hello-node web-server, but this time with 2 replicas. In order to do that, execute the following commands:
+- `kubectl create deployment hello-node --image=hello-node:v1`{{execute}}
+- `kubectl scale deployment hello-node --replicas=2`{{execute}}
+
+Check the results with with the `kubectl get pods`{{execute}}. You can view the more verbose information as well with the `kubectl describe pods`{{execute}} command.
+
+### Debugging
+If you run into a problem, you can diagnose the pods with the following commands:
+- `kubectl get events`{{execute}}
+- `kubectl get pods -o wide`{{execute}}
+- `kubectl describe pods`{{execute}}
