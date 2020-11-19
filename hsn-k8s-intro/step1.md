@@ -22,3 +22,8 @@ For more information, check the documentation at [kubectl](https://kubernetes.io
 Now that you know the installed packages and how they help you manage and run k8s clusters, prepare the environment by running the provided bash script.
 
 The script is added to the binaries, you only need to give the `prepare.sh`{{execute}} command to execute it and wait until it finishes.
+
+## Check the k8s cluster
+After the prepare script has finished, the master node will be started and reach _Ready_ state. You can check the state of the nodes with the `kubectl get nodes`{{execute}} command.
+
+If the node is ready, you can continue to Step 2.
