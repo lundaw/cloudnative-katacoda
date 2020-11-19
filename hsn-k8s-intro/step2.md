@@ -3,9 +3,9 @@ In this part, you will be creating a pod that will be running a simple web-serve
 Before continuing, make a directory with `mkdir hsn-k8s`{{execute}} and step into it with `cd hsn-k8s`{{execute}}.
 
 ## Create the JavaScript code
-Create the `server.js`{{open}} JavaScript file and paste the following code into it:
+Create the `~/hsn-k8s/server.js`{{open}} JavaScript file and paste the following code into it:
 
-<pre class="file" data-filename="server.js" data-target="replace">
+<pre class="file" data-filename="~/hsn-k8s/server.js" data-target="replace">
 var os = require("os");
 var http = require('http');
 var hostname = os.hostname();
