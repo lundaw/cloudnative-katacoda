@@ -32,3 +32,8 @@ EOF
 ```{{execute}}
 
 Now you can simply query the web-servers with the `curl http://localhost:30080`{{execute}} and see that both of them will answer if you repeatedly execute the query.
+
+### Crashing
+You can also try out the same method as the previous step and intentionally crash the web-server and check the results. As a reminder, the endpoint to the division by 0 was `/die`.
+
+If you make one request to it and the others normally, the remaining instance will still answer. Meanwhile the crashed one will be automatically restarted.
