@@ -35,3 +35,5 @@ EOF
 ```{{execute T2}}
 
 Now if you check the output in the first terminal window, you will see a new line with `Spec value is: ...`.
+
+In the next step, you will set up Kopf to create as many copies as it is defined by the replicas value.
