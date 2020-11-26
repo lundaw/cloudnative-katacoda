@@ -18,7 +18,7 @@ View the logs with the `kubectl logs hello-pod`{{execute}} command.
 ### Causing an error
 Query the /bye endpoint on the web-server, which will cause an error, because it tries to divide by 0. Call the endpoint with `curl http://<ip address>:8080/bye`.
 
-Do not forget to watch the status with the `watch -n 1 kubectl get pods`{{execute}} command after crashing it as it restarts. If you want to exit the `watch`, use the <key>ctrl</key>+<key>C</key> combination.
+Do not forget to watch the status with the `watch -n 1 kubectl get pods`{{execute}} command after crashing it as it restarts. If you want to exit the `watch`, use the <kbd>CTRL</kbd>+<kbd>C</kbd> combination.
 
 ### Viewing the logs
 View the k8s logs with the `kubectl logs hello-pod`{{execute}} command. If you need previous logs, use `--previous` switch, like `kubectl logs hello-pod --previous`{{execute}}.
