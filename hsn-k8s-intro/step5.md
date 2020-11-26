@@ -37,6 +37,7 @@ def delete_fn(name, logger, **kwargs):
     except KeyError:
         pass
     logger.info(f"Deleting: {name}. There are {len(pods)} pods.")
+    
 </pre>
 
 ## Running the operator
