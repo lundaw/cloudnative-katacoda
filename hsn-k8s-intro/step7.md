@@ -111,4 +111,6 @@ def handle_pod_deleted(name, logger, **kwargs):
 ## Testing the scaling
 Before testing and using, restart the Kopf operator with the new python code with `kopf run --namespace default --standalone kopf_scaling.py`{{execute interrupt T1}}.
 
+_Note: If you do not want to die because you cannot get out of vim, change the default editor for kubectl with `export KUBE_EDITOR=nano`{{execute}}._
+
 You can test the scaling by modifying the previously added configuration with `kubectl edit kopfexamples kopf-example-1`{{execute T2}} and changing the replica values.
