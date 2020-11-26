@@ -32,7 +32,7 @@ def scale(logger):
         name = f'{base_name}-{suffix}'
         create_pod(logger, name, template_spec)
 
-def create_pod(logger, name, spec)
+def create_pod(logger, name, spec):
     "Creates a pod named NAME with SPEC specification."
     logger.info(f'Creating {name} pod')
     api = kubernetes.client.CoreV1Api()
