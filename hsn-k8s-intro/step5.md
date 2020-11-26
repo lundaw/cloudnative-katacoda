@@ -14,7 +14,7 @@ And finally apply the example custom resource definitions (CRD) of the Kopf on t
 ## Creating the first Kopf operator
 Create a file named `kopf_example.py`{{open}} and paste the following content:
 
-<pre class="file" data-filename="kopf_example.js" data-target="replace">
+<pre class="file" data-filename="kopf_example.py" data-target="replace">
 import kopf
 import kubernetes
 
@@ -38,3 +38,6 @@ def delete_fn(name, logger, **kwargs):
         pass
     logger.info(f"Deleting: {name}. There are {len(pods)} pods.")
 </pre>
+
+## Running the operator
+Now that Kopf is ready to use, you can start the operator with `kopf run -n default --standalone kopf_examle.py`{{execute}} and start working with pods such as creating, modifying, etc. For example you can go ahead and delete the previously created deployment with `kubectl delete deployment hello-node`{{execute}}.
