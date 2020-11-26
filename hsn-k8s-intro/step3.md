@@ -21,7 +21,7 @@ Query the /bye endpoint on the web-server, which will cause an error, because it
 Do not forget to watch the status with the `watch -n 1 kubectl get pods`{{execute}} command after crashing it as it restarts. If you want to exit the `watch`, use the <key>ctrl</key>+<key>C</key> combination.
 
 ### Viewing the logs
-View the k8s logs with the `kubectl get logs hello-pod`{{execute}} command. If you need previous logs, use `--previous` switch, like `kubectl get logs hello-pod --previous`{{execute}}.
+View the k8s logs with the `kubectl logs hello-pod`{{execute}} command. If you need previous logs, use `--previous` switch, like `kubectl logs hello-pod --previous`{{execute}}.
 
 ## Removing the pod
 Now before continuing, remove the running `hello-pod` by executing the `kubectl delete pod hello-pod`{{execute}} command.
