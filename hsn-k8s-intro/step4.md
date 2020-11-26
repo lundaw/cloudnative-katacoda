@@ -8,7 +8,7 @@ Check the results with with the `kubectl get pods`{{execute}}. You can view the 
 ### Debugging
 If you run into a problem, you can diagnose the pods with the following commands:
 - `kubectl get events`{{execute}}
-- `kubectl get pods -o wide`{{execute}}
+- `kubectl get pods --output wide`{{execute}}
 - `kubectl describe pods`{{execute}}
 
 ## Service abstraction

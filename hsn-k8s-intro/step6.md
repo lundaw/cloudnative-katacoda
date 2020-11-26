@@ -10,7 +10,7 @@ def create_zalando_fn(name, spec, logger, **kwargs):
     logger.info(f"Spec value is: {spec}")
 </pre>
 
-Now before you continue, restart the Kopf operator in the other Terminal window to apply the changes made in the `kopf_example.py` file. You can do that by pressing <kbd>CTRL</kbd>+<kbd>C</kbd> and executing the previously used `kopf run` command. Or in one step by pressing this: `kopf run -n default --standalone kopf_example.py`{{execute interrupt T1}}.
+Now before you continue, restart the Kopf operator in the other Terminal window to apply the changes made in the `kopf_example.py` file. You can do that by pressing <kbd>CTRL</kbd>+<kbd>C</kbd> and executing the previously used `kopf run` command. Or in one step by pressing this: `kopf run --namespace default --standalone kopf_example.py`{{execute interrupt T1}}.
 
 ### Testing the modifications
 After you made the changes to the Kopf operator and restarted it, you can test it by creating a custom resource with the following in the second Terminal window:
