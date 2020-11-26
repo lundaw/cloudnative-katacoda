@@ -40,4 +40,6 @@ def delete_fn(name, logger, **kwargs):
 </pre>
 
 ## Running the operator
-Now that Kopf is ready to use, you can start the operator with `kopf run -n default --standalone kopf_example.py`{{execute}} and start working with pods such as creating, modifying, etc. For example you can go ahead and delete the previously created deployment with `kubectl delete deployment hello-node`{{execute}}.
+Now that Kopf is ready to use, you can start the operator with `kopf run -n default --standalone kopf_example.py`{{execute}} and start working with pods such as creating, modifying, etc. The operator will now run in the terminal window until you exit with <kbd>ctrl</kbd>+<kbd>c</kbd>.
+
+For example you can go ahead and open an another terminal and delete the previously created deployment with `kubectl delete deployment hello-node`{{execute T2}}.
