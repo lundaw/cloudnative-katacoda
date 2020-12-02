@@ -42,7 +42,11 @@
     },
     "assets": {
       "host01": [
-        {"file": "prepare.sh", "target": "/usr/bin", "chmod": "+x"}
+        {"file": "prepare.sh", "target": "/usr/bin", "chmod": "+x"},
+        {"file": "Dockerfile", "target": "~/prepared"},
+        {"file": "kopf_example.py", "target": "~/prepared"},
+        {"file": "kopf_scaling.py", "target": "~/prepared"},
+        {"file": "server.js", "target": "~/prepared"}
       ]
     }
   },
